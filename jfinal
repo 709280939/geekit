@@ -1,0 +1,10 @@
+jfinal教程
+http://www.cnblogs.com/wvqusrtg/p/4994874.html
+
+1.创建动态web工程
+2.新建配置文件ConmonConfig
+3.配置web.xml
+4.添加controller
+5.在配置文件中添加路由
+6.书写页面
+7.发布
