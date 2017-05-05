@@ -1,0 +1,26 @@
+关于导入Eclipse原生项目
+
+　　如果在项目源码看到里面有.calsspath .project文件，那么说明这个项目本来就是eclipse开发的，那么在eclipse中->File->Import->General->Existing Projects into Workspace，然后选择你想要导入的项目路径就OK了。
+
+关于导入ant项目
+
+　　如果看到里面有build.xml, 那么说明这个项目是ant构建的，参考下面的“关于导入ant项目” 
+这个还是比较简单的，打开eclipse, File->New->Project （对，你没有看错，是新建不是导入），再选择“Java Project from Existing Ant Buildfile ”， 然后下一步，取一个项目名称，并指定上面所说的build.xml所在的位置就可以了
+
+关于导入Maven项目
+
+　　如果看到里面有pom.xml文件，那么说明这个项目是由Maven构建的。 
+　　Maven是一种构建工具，可以想象成像make, clearmake, ant一样 
+　　首先你要安装Java，然后： 
+　　1，到这里http://maven.apache.org/下载压缩包，并解压到某个目录 
+　　2，打开环境变量设置将Maven的安装位置添加到path中，比如我的path为：D:/Program Files (x86)/jdk1.8.0/bin/;D:/Program Files (x86)/apache-maven/bin 
+　　然后打开一个新的cmd, 输入mvn -v 能看到版本信息就OK了 
+　　3，Maven安装好以后，到源代码目录，打开cmd，输入mvn eclipse:eclipse，回车，这个时候，maven会将该目录下的mvn项目转换为eclipse项目（转换完成后，你会发现项目目录下多了.calsspath .project文件），这个时候你就可以回到上面所说的第一种情况，直接导入了。另外，maven还有一个eclipse插件，可以在eclipse的帮助菜单下点击Eclipse Marketplace, 在市场中搜索安装。 
+　　然后导入mvn项目时就可以用图形界面导入了
+
+至于其他的，就新建项目，将src中的源码导入再看需要导入lib吧
+
+这里顺便说一下直接在package中导入.java的方法
+
+　　在工程下面的package点击右键，选择Import，然后选择File System，在点击下一步,在Browse选择你存放.java文件的路径。（这里不能先把那些.java文件提前复制到想要导入的包的文件夹里面，否则，你会发现那个完成按钮是灰色的，点不了）。最后把下面的设置的所有打勾的都去掉，点击完成就OK了。 
+　　这里有一点需要注意一下：你选择的那个文件夹最好不要有另外的文件夹，否则，Eclipse会把你那些文件夹也给copy到你package文件夹里。
