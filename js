@@ -15,7 +15,12 @@ url: "http://localhost:8080/rm/list" ,
 <!--data: $('#form1').serialize(),-->      
 success: function (result) {          
 console.log(result);//打印服务端返回的数据(调试用)      
-$("#content").text(JSON.stringify(result));              
+$("#content").text(JSON.stringify(result)); 
+     var user= "";                 
+      for(var i = 0; i < result.length; i++){                      
+         user+= result[i]['username'] +";\n";  
+       } 
+       $("#content").text(user); 
 if (result.resultCode == 200) {           
 alert("SUCCESS");       
 };     
