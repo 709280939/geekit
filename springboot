@@ -1,3 +1,4 @@
+mybatisConfig:
 @Bean
     public SqlSessionFactory sqlSessionFactoryBean(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
@@ -7,4 +8,18 @@
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         factory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
         return factory.getObject();
+    }
+@Bean
+    public MapperScannerConfigurer mapperScannerConfigurer() {
+        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
+        mapperScannerConfigurer.setBasePackage("com.test.dao");
+        //配置通用Mapper，详情请查阅官方文档
+        Properties properties = new Properties();
+       // properties.setProperty("mappers", "com.test.core.mapper");
+        properties.setProperty("notEmpty", "false");
+        properties.setProperty("IDENTITY", "MYSQL");
+        mapperScannerConfigurer.setProperties(properties);
+
+        return mapperScannerConfigurer;
     }
