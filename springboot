@@ -33,3 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/**").permitAll();
     }
 }
+
+
+/**
+*支持https
+*/
+生成keystore
+
