@@ -40,3 +40,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 */
 生成keystore
 
+application.properties
+server.port=8443
+server.ssl.key-store=src/main/resources/logabc.keystore
+#server.ssl.key-store=classpath:logabc.keystore
+#密钥库密码
+server.ssl.key-store-password=mi**pwd2
+server.ssl.key-password:mi**pwd
+server.ssl.keyStoreType=JKS
