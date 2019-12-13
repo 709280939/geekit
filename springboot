@@ -23,7 +23,7 @@ mybatisConfig:
 
         return mapperScannerConfigurer;
     }
-//屏蔽安全检查
+//屏蔽安全检查默认login
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 class Application{}
 
