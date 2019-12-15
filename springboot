@@ -23,7 +23,7 @@ mybatisConfig:
 
         return mapperScannerConfigurer;
     }
-//屏蔽安全检查默认login
+//屏蔽安全检查默认login  用户名：user 密码是启动时控制台打印的字符串
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 class Application{}
 
