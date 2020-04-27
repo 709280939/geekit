@@ -13,8 +13,8 @@ public class CommonWorkTaker {
 	private Map<String, DiscoverManagerInterface> discoverManagers = new HashMap<String, DiscoverManagerInterface>(0);
 
 	public CommonWorkTaker() {
-		discoverManagers.put(OS, new OceanstoDiscoverManagerImpl());
-		discoverManagers.put(FS, new FusionstoDiscoverManagerImpl());
+		discoverManagers.put(OS, new OsDiscoverManagerImpl());
+		discoverManagers.put(FS, new FsDiscoverManagerImpl());
 	}
 
 	public static CommonWorkTaker getInstance() {
