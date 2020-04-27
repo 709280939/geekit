@@ -4,3 +4,25 @@ java开发知识结构的建立
 2) 设计模式，熟悉常用设计模式，识别代码坏味道，随时准备代码重构。
 3）常用框架，熟悉常用框架及源码，帮助我们更好理解基础的应用。
 4）基础算法，俗话说编程就是算法+数据结构，可以算法的重要性，好的算法几行足够，不好的实现千篇一律还一定真正解决问题，毕竟言多必失，写的代码多，也更容易出bug.
+
+1.multiConnection
+public class CommonWorkTaker {
+	public static final String OS = "os";
+	public static final String FS = "fs";
+	private static CommonWorkTaker instance = new CommonWorkTaker();
+	private Map<String, DiscoverManagerInterface> discoverManagers = new HashMap<String, DiscoverManagerInterface>(0);
+
+	public CommonWorkTaker() {
+		discoverManagers.put(OS, new OceanstoDiscoverManagerImpl());
+		discoverManagers.put(FS, new FusionstoDiscoverManagerImpl());
+	}
+
+	public static CommonWorkTaker getInstance() {
+		return instance;
+	}
+	
+	public DiscoverManagerInterface getDiscoverManager(String deviceType)
+    {
+        return discoverManagers.get(deviceType);
+    }
+}
