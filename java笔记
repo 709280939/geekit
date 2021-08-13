@@ -1,0 +1,25 @@
+1.postman 接口请求
+方式一：postman
+方式二：火狐
+方式三：idea –tools—http client—Test restful web service
+
+POST https://ip:8080/xx/login
+Accept: */*
+Content-Type:  application/json; charset=utf8
+Cache-Control: no-cache
+
+{
+  "userName": "",
+  "password": "",
+  "scope":"0"
+}
+> {% client.global.set("Auth-Token", response.headers.valueOf("Auth-Token"));
+     client.global.set("ip", "xx");
+%}
+###
+
+GET https://ip:8080/getdata
+Accept: */*
+Content-Type: application/json; charset=utf8
+Cache-Control: no-cache
+X-Auth-Token: {{Auth-Token}}
