@@ -2,3 +2,10 @@
   ResponseData &&data = resp.ResData(resData);
   ResponseData ports = data["ports"]; 
   ResponseData ports = ResponseData(data["ports"]);
+  
+  
+  2.编译使用curl三方库
+  步骤一:按照官网说明进行编译
+  步骤二：属性管理配置include和lib
+  步骤三：在demo生成的exe所在debug或release路径添加三方编译动态库bin下的libcurl.dll
+  
