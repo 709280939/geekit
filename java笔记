@@ -23,3 +23,26 @@ Accept: */*
 Content-Type: application/json; charset=utf8
 Cache-Control: no-cache
 X-Auth-Token: {{Auth-Token}}
+
+
+单例模式
+private static final Test2 test2 = new Test2(); //饿汉式，类初始化时已经自行实例化
+    public static Test2 getInstance() {
+        return test2;
+    }
+
+    /**
+     * 懒汉式，双重检查加锁(推荐，适用于多线程)
+     * @return
+     */
+   private static Test1025 instance = null;
+    public static Test1025 getTest() {
+        if (instance == null) {
+            synchronized (Test1025.class) {
+                if (instance == null) {
+                    instance = new Test1025();
+                }
+            }
+        }
+        return instance;
+    }
